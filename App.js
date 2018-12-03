@@ -1,47 +1,53 @@
-import React from 'react';
-import { View, Text, Button } from 'react-native';
-import { createAppContainer, createStackNavigator, StackActions, NavigationActions } from 'react-navigation'; // Version can be specified in package.json
+import React, { Component } from 'react';
+import { AppRegistry, StyleSheet, View } from 'react-native';
+import { Button, Header } from 'react-native-elements';
 
-class HomeScreen extends React.Component {
+
+export default class App extends Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home Screen</Text>
-        <Button
-          title="Go to Details"
-          onPress={() => {
-            this.props.navigation.dispatch(StackActions.reset({
-              index: 0,
-              actions: [
-                NavigationActions.navigate({ routeName: 'Details' })
-              ],
-            }))
-          }}
-        />
+      <View style={styles.container}>
+      <Header
+        leftComponent={{ icon: 'menu', color: '#fff' }}
+        centerComponent={{ text: 'Pedido Certo', style: { color: '#fff' } }}
+        rightComponent={{ icon: 'home', color: '#fff' }}
+      />
+      <View style={styles.container_body}>
+        <Button style={styles.button_home}
+          raised
+          icon={{name: 'face'}}
+          title='Cliente' />
+          <Button style={styles.button_home}
+          raised
+          icon={{name: 'build'}}
+          title='Produto' />
+          <Button style={styles.button_home}
+          raised
+          icon={{name: 'shop'}}
+          title='Pedido' />
+        </View>
       </View>
-    );
-  }  
+    )
+  }
 }
 
-class DetailsScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Details Screen</Text>
-      </View>
-    );
-  }  
-}
-
-const AppNavigator = createStackNavigator({
-  Home: {
-    screen: HomeScreen,
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    //justifyContent: 'center',
+    //alignItems: 'center',
   },
-  Details: {
-    screen: DetailsScreen,
+  container_body:{ 
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-}, {
-    initialRouteName: 'Home',
-});
+  button_home:{
+    marginTop:10,
+  },
+  color_title:{
+    color: 'white',
+  }
 
-export default createAppContainer(AppNavigator);
+})
+
+AppRegistry.registerComponent('App', () => App)

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, View } from 'react-native';
-import { Button, Header } from 'react-native-elements';
-
+import { Button, Header, SearchBar } from 'react-native-elements';
 
 export default class App extends Component {
   render() {
@@ -13,6 +12,12 @@ export default class App extends Component {
         rightComponent={{ icon: 'home', color: '#fff' }}
       />
       <View style={styles.container_body}>
+      <SearchBar
+      lightTheme
+      // onChangeText={someMethod}
+      // onClearText={someMethod}
+      icon={{ type: 'font-awesome', name: 'search' }}
+      placeholder='Type Here...' />
         <Button style={styles.button_home}
           raised
           icon={{name: 'face'}}

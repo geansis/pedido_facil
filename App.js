@@ -13,11 +13,11 @@ export default class App extends Component {
       />
       <View style={styles.container_body}>
       <SearchBar
-      lightTheme
-      // onChangeText={someMethod}
-      // onClearText={someMethod}
-      icon={{ type: 'font-awesome', name: 'search' }}
-      placeholder='Type Here...' />
+        lightTheme
+        // onChangeText={someMethod}
+        // onClearText={someMethod}
+        icon={{ type: 'font-awesome', name: 'procurar' }}
+        placeholder='Digite Aqui...' />
         <Button style={styles.button_home}
           raised
           icon={{name: 'face'}}
